@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NightBefore AI – Last Minute Exam Helper</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6892813364721067" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   DESIGN SYSTEM — "Neon Risograph" — vivid ink on warm white canvas
+   Hot pink × electric blue × lime × orange × violet
+=================================================================== */
+:root {
+  --white:    #FDFAF5;
+  --off:      #F4F0E8;
+  --ink:      #1A1520;
+  --ink-2:    #3D3547;
+  --ink-3:    #7B7290;
+  --pink:     #FF2D78;
+  --pink-lt:  #FF85B0;
+  --blue:     #1B6EF3;
+  --blue-lt:  #78AAFF;
+  --lime:     #00D46A;
+  --lime-lt:  #6EFFA8;
+  --orange:   #FF6B00;
+  --orange-lt:#FFAA66;
+  --violet:   #7C3AED;
+  --violet-lt:#B492FF;
+  --yellow:   #FFD600;
+  --font-head: 'Cabinet Grotesk', sans-serif;
+  --font-body: 'Cabinet Grotesk', sans-serif;
+  --font-serif:'Fraunces', serif;
+  --r-sm: 8px;
+  --r:    16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Background doodles */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, #FF2D7812 0%, transparent 35%),
+    radial-gradient(circle at 85% 15%, #1B6EF312 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, #00D46A10 0%, transparent 35%),
+    radial-gradient(circle at 90% 70%, #7C3AED0D 0%, transparent 30%),
+    radial-gradient(circle at 8%  75%, #FF6B0010 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid paper texture */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image: linear-gradient(#1B6EF305 1px, transparent 1px),
+                    linear-gradient(90deg, #1B6EF305 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ===================================================================
+   FLOATING SHAPES
+=================================================================== */
+.shape {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+.shape-1 {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+  top: -50px; right: 80px;
+  animation: float1 8s ease-in-out infinite;
+}
+.shape-2 {
+  width: 80px; height: 80px;
+  background: var(--yellow);
+  transform: rotate(30deg);
+  border-radius: 8px;
+  bottom: 15%; left: -20px;
+  animation: float2 6s ease-in-out infinite;
+}
+.shape-3 {
+  width: 50px; height: 50px;
+  border: 3px solid var(--lime);
+  border-radius: 50%;
+  top: 40%; right: -15px;
+  animation: float1 7s ease-in-out infinite 1s;
+}
+.shape-4 {
+  width: 120px; height: 120px;
+  border: 3px solid var(--violet);
+  transform: rotate(45deg);
+  bottom: 5%; right: 5%;
+  animation: float2 9s ease-in-out infinite 2s;
+}
+
+@keyframes float1 {
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-18px) rotate(8deg);}
+}
+@keyframes float2 {
+  0%,100%{transform:translateY(0) rotate(30deg);}
+  50%{transform:translateY(-12px) rotate(38deg);}
+}
+
+/* ===================================================================
+   LAYOUT
+=================================================================== */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+/* ===================================================================
+   HEADER
+=================================================================== */
+header {
+  padding: 28px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-moon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--violet) 100%);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  box-shadow: 4px 4px 0 var(--ink);
+  flex-shrink: 0;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,100%{transform:rotate(-3deg);}
+  50%{transform:rotate(3deg);}
+}
+
+.logo-words {}
+.logo-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--pink), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-tagline {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.header-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+}
+
+.pill-pink  { color: var(--pink);   background: #FF2D7812; }
+.pill-blue  { color: var(--blue);   background: #1B6EF312; }
+.pill-lime  { color: var(--lime);   background: #00D46A12; }
+
+.pulse-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+/* ===================================================================
+   HERO BANNER
+=================================================================== */
+.hero {
+  margin: 16px 0 40px;
+  background: var(--ink);
+  border-radius: var(--r-xl);
+  padding: 48px 48px 44px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 var(--pink);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FF2D7820 0%, #1B6EF320 50%, #7C3AED20 100%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.hero h1 .grad-pink {
+  background: linear-gradient(90deg, var(--pink), var(--orange-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h1 .grad-blue {
+  background: linear-gradient(90deg, var(--blue-lt), var(--lime-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: #aaa;
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-stat strong {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+}
+
+.hero-stat span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  font-weight: 500;
+}
+
+.hero-deco {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8rem;
+  opacity: 0.08;
+  pointer-events: none;
+  line-height: 1;
+  animation: float1 6s ease-in-out infinite;
+}
+
+/* ===================================================================
+   TABS
+=================================================================== */
+.tabs-wrap {
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin-bottom: 28px;
+  scrollbar-width: none;
+}
+.tabs-wrap::-webkit-scrollbar{display:none;}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: var(--off);
+  border-radius: var(--r-lg);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  width: max-content;
+  min-width: 100%;
+}
+
+.tab {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-3);
+  padding: 10px 16px;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  letter-spacing: 0.01em;
+}
+
+.tab:hover:not(.active) {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.tab.active {
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: translate(-1px, -1px);
+}
+
+.tab[data-tab="notes"].active    { background: var(--pink); }
+.tab[data-tab="revision"].active { background: var(--blue); }
+.tab[data-tab="plan"].active     { background: var(--violet); }
+.tab[data-tab="flashcards"].active{ background: var(--orange); }
+.tab[data-tab="quiz"].active     { background: var(--lime); color: var(--ink); }
+.tab[data-tab="explain"].active  { background: var(--pink); background: linear-gradient(135deg,#FF6B00,#FFD600); color: var(--ink); }
+
+/* ===================================================================
+   PANELS
+=================================================================== */
+.panel { display: none; }
+.panel.active {
+  display: block;
+  animation: popIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes popIn {
+  from{opacity:0;transform:scale(0.97) translateY(8px);}
+  to{opacity:1;transform:scale(1) translateY(0);}
+}
+
+/* ===================================================================
+   CARDS
+=================================================================== */
+.card {
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  box-shadow: 5px 5px 0 var(--ink);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card-pink   { border-color: var(--pink);   box-shadow: 5px 5px 0 var(--pink); }
+.card-blue   { border-color: var(--blue);   box-shadow: 5px 5px 0 var(--blue); }
+.card-lime   { border-color: var(--lime);   box-shadow: 5px 5px 0 var(--lime); }
+.card-orange { border-color: var(--orange); box-shadow: 5px 5px 0 var(--orange); }
+.card-violet { border-color: var(--violet); box-shadow: 5px 5px 0 var(--violet); }
+.card-yellow { border-color: var(--yellow); box-shadow: 5px 5px 0 #e6c000; }
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.icon-pink   { background: #FF2D7820; }
+.icon-blue   { background: #1B6EF320; }
+.icon-lime   { background: #00D46A20; }
+.icon-orange { background: #FF6B0020; }
+.icon-violet { background: #7C3AED20; }
+.icon-yellow { background: #FFD60020; }
+
+.card-title {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.card-desc {
+  font-size: 0.83rem;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* ===================================================================
+   FORM
+=================================================================== */
+label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+
+textarea, input[type="text"], input[type="date"], select {
+  width: 100%;
+  background: var(--off);
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  resize: vertical;
+  line-height: 1.6;
+  -webkit-appearance: none;
+}
+textarea { min-height: 180px; }
+
+textarea:focus, input:focus, select:focus {
+  border-color: var(--pink);
+  box-shadow: 3px 3px 0 var(--pink);
+  transform: translate(-1px,-1px);
+  background: var(--white);
+}
+
+textarea::placeholder, input::placeholder { color: var(--ink-3); font-style: italic; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.form-group { display: flex; flex-direction: column; margin-bottom: 18px; }
+
+/* ===================================================================
+   BUTTONS
+=================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  padding: 12px 24px;
+  transition: all 0.15s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 3px 3px 0 var(--ink);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.btn-pink   { background: var(--pink);   color: #fff; }
+.btn-blue   { background: var(--blue);   color: #fff; }
+.btn-lime   { background: var(--lime);   color: var(--ink); }
+.btn-orange { background: var(--orange); color: #fff; }
+.btn-violet { background: var(--violet); color: #fff; }
+.btn-yellow { background: var(--yellow); color: var(--ink); }
+.btn-ghost  { background: transparent;  color: var(--ink); }
+
+.btn-full { width: 100%; }
+
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none !important; box-shadow: 3px 3px 0 #999 !important; border-color: #999 !important; }
+
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+/* ===================================================================
+   LOADER
+=================================================================== */
+.loader {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  background: var(--off);
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.loader.show { display: flex; }
+
+.spinner {
+  width: 20px; height: 20px;
+  border: 3px solid #ddd;
+  border-top-color: var(--pink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ===================================================================
+   OUTPUT GRID
+=================================================================== */
+.out-section { display: none; margin-top: 20px; animation: popIn 0.35s ease both; }
+.out-section.show { display: block; }
+
+.out-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.out-label {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--white);
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.out-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.out-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.out-card:hover { transform: translate(-2px,-2px); }
+
+.out-card.full { grid-column: 1 / -1; }
+
+.out-card.oc-pink   { background: #FF2D780D; box-shadow: 4px 4px 0 var(--pink);   border-color: var(--pink); }
+.out-card.oc-blue   { background: #1B6EF30D; box-shadow: 4px 4px 0 var(--blue);   border-color: var(--blue); }
+.out-card.oc-lime   { background: #00D46A0D; box-shadow: 4px 4px 0 var(--lime);   border-color: var(--lime); }
+.out-card.oc-violet { background: #7C3AED0D; box-shadow: 4px 4px 0 var(--violet); border-color: var(--violet); }
+.out-card.oc-orange { background: #FF6B000D; box-shadow: 4px 4px 0 var(--orange); border-color: var(--orange); }
+
+.oc-title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oc-pink   .oc-title { color: var(--pink); }
+.oc-blue   .oc-title { color: var(--blue); }
+.oc-lime   .oc-title { color: var(--lime); }
+.oc-violet .oc-title { color: var(--violet); }
+.oc-orange .oc-title { color: var(--orange); }
+
+.oc-body {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* ===================================================================
+   REVISION PANEL
+=================================================================== */
+.rev-panel {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-xl);
+  padding: 40px;
+  text-align: center;
+  box-shadow: 6px 6px 0 var(--blue);
+  overflow: hidden;
+  position: relative;
+}
+
+.rev-panel::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(135deg, #1B6EF315 0%, #7C3AED15 100%);
+  pointer-events:none;
+}
+
+.rev-timer {
+  font-family: var(--font-head);
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  text-shadow: 0 0 60px #FFD60066;
+  margin-bottom: 6px;
+}
+
+.rev-timer-lbl {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.prog-wrap {
+  background: #222;
+  border-radius: 100px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--lime));
+  border-radius: 100px;
+  transition: width 1s linear;
+  box-shadow: 0 0 12px var(--blue);
+}
+
+.rev-summary {
+  background: #ffffff0f;
+  border: 1px solid #ffffff18;
+  border-radius: var(--r);
+  padding: 20px;
+  text-align: left;
+  font-size: 0.92rem;
+  color: #ddd;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  margin-top: 24px;
+  min-height: 80px;
+}
+
+/* ===================================================================
+   FLASHCARDS
+=================================================================== */
+.fc-wrap {
+  perspective: 1200px;
+  margin: 24px 0;
+}
+
+.fc-card {
+  width: 100%;
+  min-height: 220px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+}
+
+.fc-card.flipped { transform: rotateY(180deg); }
+
+.fc-front, .fc-back {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  min-height: 220px;
+}
+
+.fc-front {
+  background: linear-gradient(135deg, #FF2D7810, #FF6B0010);
+  border-color: var(--orange);
+  box-shadow: 5px 5px 0 var(--orange);
+}
+
+.fc-back {
+  background: linear-gradient(135deg, #1B6EF310, #7C3AED10);
+  border-color: var(--violet);
+  box-shadow: 5px 5px 0 var(--violet);
+  transform: rotateY(180deg);
+}
+
+.fc-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  border: 2px solid currentColor;
+}
+.fc-front .fc-badge { color: var(--orange); }
+.fc-back  .fc-badge { color: var(--violet); }
+
+.fc-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.fc-hint {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fc-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.fc-counter {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink-2);
+}
+
+/* ===================================================================
+   QUIZ
+=================================================================== */
+.quiz-q {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: #00D46A0D;
+  border: 2px solid var(--lime);
+  border-radius: var(--r);
+  box-shadow: 3px 3px 0 var(--lime);
+}
+
+.quiz-q-num {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 8px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quiz-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: var(--r);
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  transition: all 0.15s;
+  box-shadow: 2px 2px 0 var(--ink);
+  text-align: left;
+}
+.quiz-opt:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+.quiz-opt.correct  { background: #00D46A20; border-color: var(--lime);  color: var(--ink); box-shadow: 3px 3px 0 var(--lime); }
+.quiz-opt.wrong    { background: #FF2D7820; border-color: var(--pink);  color: var(--ink); box-shadow: 3px 3px 0 var(--pink); }
+.quiz-opt.disabled { pointer-events: none; opacity: 0.6; }
+
+.quiz-opt-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.correct .quiz-opt-letter { background: var(--lime);   border-color: var(--lime); color: var(--ink); }
+.wrong   .quiz-opt-letter { background: var(--pink);   border-color: var(--pink); color: #fff; }
+
+.quiz-result-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-radius: var(--r);
+  border: 2px solid var(--ink);
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.quiz-result-bar.correct-bg { background: #00D46A20; color: var(--ink); border-color: var(--lime); }
+.quiz-result-bar.wrong-bg   { background: #FF2D7820; color: var(--ink); border-color: var(--pink); }
+
+.quiz-score {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--ink);
+  border-radius: var(--r-lg);
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--lime);
+}
+.quiz-score-num {
+  font-family: var(--font-head);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.quiz-score-label { font-size: 1rem; color: #aaa; }
+
+/* ===================================================================
+   STUDY PLAN
+=================================================================== */
+.plan-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 2px dashed #e0dbd0;
+  animation: popIn 0.3s ease both;
+}
+.plan-item:last-child { border-bottom: none; }
+
+.plan-num {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.pn-read    { background: #1B6EF320; color: var(--blue); }
+.pn-practice{ background: #FF6B0020; color: var(--orange); }
+.pn-revise  { background: #7C3AED20; color: var(--violet); }
+.pn-test    { background: #FF2D7820; color: var(--pink); }
+
+.plan-content { flex: 1; }
+.plan-day-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.plan-day-tasks { font-size: 0.83rem; color: var(--ink-2); line-height: 1.6; }
+.plan-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-top: 8px;
+  border: 2px solid currentColor;
+}
+.tag-read    { color: var(--blue); }
+.tag-practice{ color: var(--orange); }
+.tag-revise  { color: var(--violet); }
+.tag-test    { color: var(--pink); }
+
+/* ===================================================================
+   EXPLAINER / ELI5
+=================================================================== */
+.eli5-output {
+  background: linear-gradient(135deg, #FFD60015, #FF6B0015);
+  border: 2px solid var(--yellow);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.85;
+  white-space: pre-wrap;
+  box-shadow: 4px 4px 0 #e6c000;
+  min-height: 80px;
+  display: none;
+  margin-top: 16px;
+  animation: popIn 0.35s ease both;
+}
+.eli5-output.show { display: block; }
+
+/* ===================================================================
+   TOAST
+=================================================================== */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--ink);
+  color: var(--yellow);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: var(--r);
+  border: 2px solid var(--yellow);
+  box-shadow: 4px 4px 0 var(--yellow);
+  z-index: 9999;
+  animation: toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+  max-width: 300px;
+}
+@keyframes toastIn {
+  from{opacity:0;transform:translateY(20px) scale(0.9);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+/* ===================================================================
+   EMPTY STATE
+=================================================================== */
+.empty {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--ink-3);
+}
+.empty .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+.empty p { font-size: 0.88rem; line-height: 1.7; }
+
+/* ===================================================================
+   FOOTER
+=================================================================== */
+footer {
+  margin-top: 60px;
+  padding: 28px;
+  background: var(--ink);
+  border-radius: var(--r-xl);
+  border: 2px solid var(--ink);
+  text-align: center;
+  font-size: 0.78rem;
+  color: #888;
+  box-shadow: 5px 5px 0 var(--pink);
+}
+footer .f-title {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--pink), var(--blue-lt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+footer a { color: var(--yellow); text-decoration: none; }
+
+/* ===================================================================
+   SCROLLBAR
+=================================================================== */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:var(--off);}
+::-webkit-scrollbar-thumb{background:var(--ink-3);border-radius:10px;}
+
+/* ===================================================================
+   RESPONSIVE
+=================================================================== */
+@media(max-width:640px){
+  .hero { padding: 32px 24px; }
+  .hero-deco { display: none; }
+  .hero-stats { gap: 16px; }
+  .form-row { grid-template-columns: 1fr; }
+  .out-grid { grid-template-columns: 1fr; }
+  .out-card.full { grid-column: auto; }
+  .rev-timer { font-size: 4.5rem; }
+  .btn-row { flex-direction: column; }
+  .btn-row .btn { width: 100%; }
+  .fc-front, .fc-back { padding: 28px 20px; min-height: 200px; }
+  .tabs { min-width: max-content; }
+  header { gap: 12px; }
+  .header-pills { gap: 6px; }
+}
+
+/* ===================================================================
+   MOTIVATION TICKER
+=================================================================== */
+.ticker-wrap {
+  overflow: hidden;
+  background: var(--pink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 10px 0;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.ticker {
+  display: flex;
+  gap: 0;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 32px;
+}
+
+.ticker-item::after {
+  content: '★';
+  margin-left: 32px;
+  color: var(--yellow);
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating deco shapes -->
+<div class="shape shape-1"></div>
+<div class="shape shape-2"></div>
+<div class="shape shape-3"></div>
+<div class="shape shape-4"></div>
+
+<!-- Motivation ticker -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item">You've got this!</span>
+    <span class="ticker-item">Last-minute revision is your superpower</span>
+    <span class="ticker-item">One more hour of focus = exam success</span>
+    <span class="ticker-item">Believe in your preparation</span>
+    <span class="ticker-item">Stay calm, stay sharp</span>
+    <span class="ticker-item">Every expert was once a beginner</span>
+    <span class="ticker-item">Your brain is capable of amazing things</span>
+    <span class="ticker-item">You've got this!</span>
+    <span class="ticker-item">Last-minute revision is your superpower</span>
+    <span class="ticker-item">One more hour of focus = exam success</span>
+    <span class="ticker-item">Believe in your preparation</span>
+    <span class="ticker-item">Stay calm, stay sharp</span>
+    <span class="ticker-item">Every expert was once a beginner</span>
+    <span class="ticker-item">Your brain is capable of amazing things</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-moon">🌙</div>
+      <div class="logo-words">
+        <div class="logo-title">NightBefore AI</div>
+        <div class="logo-tagline">Last-Minute Exam Helper</div>
+      </div>
+    </div>
+    <div class="header-pills">
+      <div class="pill pill-pink"><div class="pulse-dot"></div> Live AI</div>
+      <div class="pill pill-blue">Free Tool</div>
+      <div class="pill pill-lime">6 Features</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-deco">📚</div>
+    <div class="hero-tag">⚡ Exam panic? We got you.</div>
+    <h1>
+      Study <span class="grad-pink">Smarter.</span><br>
+      Score <span class="grad-blue">Higher.</span>
+    </h1>
+    <p>Paste your notes, syllabus or textbook and let AI do the heavy lifting — exam notes, flashcards, quizzes, and a study plan, all instantly.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>6</strong><span>AI Features</span></div>
+      <div class="hero-stat"><strong>⚡</strong><span>Instant Output</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Free to Use</span></div>
+    </div>
+  </div>
+
+  <!-- ✅ Google AdSense Banner Ad -->
+  <div style="text-align:center;margin:0 0 24px;min-height:90px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6892813364721067"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab active" data-tab="notes"      onclick="switchTab('notes')">📝 Exam Notes</button>
+      <button class="tab"        data-tab="revision"   onclick="switchTab('revision')">⏱ 1-Min Revision</button>
+      <button class="tab"        data-tab="flashcards" onclick="switchTab('flashcards')">🃏 Flashcards</button>
+      <button class="tab"        data-tab="quiz"       onclick="switchTab('quiz')">🎯 Quiz Me</button>
+      <button class="tab"        data-tab="explain"    onclick="switchTab('explain')">🧠 ELI5 Explainer</button>
+      <button class="tab"        data-tab="plan"       onclick="switchTab('plan')">📅 Study Plan</button>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       PANEL: EXAM NOTES
+  ================================================================ -->
+  <div class="panel active" id="panel-notes">
+
+    <div class="card card-pink">
+      <div class="card-header">
+        <div class="card-icon icon-pink">📄</div>
+        <div>
+          <div class="card-title">Generate Exam Notes</div>
+          <div class="card-desc">Paste your syllabus, lecture notes or textbook content. AI extracts the key info you need to pass.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="notesInput">Your notes / syllabus / textbook content</label>
+        <textarea id="notesInput" placeholder="Paste your syllabus, lecture notes, or any study content here…
+
+Example: Chapter 4 – Data Structures
+A stack is a LIFO (Last In, First Out) data structure. Push adds to top, Pop removes from top. Applications include function call stack, undo operations..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-pink" onclick="generateNotes()">✨ Generate Exam Notes</button>
+        <button class="btn btn-ghost" onclick="clearField('notesInput','notesOutput')">🗑 Clear</button>
+        <button class="btn btn-ghost" onclick="copyAll()" style="margin-left:auto;">📋 Copy All</button>
+      </div>
+    </div>
+
+    <div class="loader" id="notesLoader">
+      <div class="spinner" style="border-top-color:var(--pink);"></div>
+      AI is reading your content and building smart exam notes…
+    </div>
+
+    <div class="out-section" id="notesOutput">
+      <div class="out-head">
+        <div class="out-label">✅ Your AI Exam Notes</div>
+      </div>
+      <div class="out-grid">
+        <div class="out-card oc-pink full">
+          <div class="oc-title">📌 Short Exam Notes</div>
+          <div class="oc-body" id="shortNotes"></div>
+        </div>
+        <div class="out-card oc-blue">
+          <div class="oc-title">🔥 Important Topics</div>
+          <div class="oc-body" id="importantTopics"></div>
+        </div>
+        <div class="out-card oc-lime">
+          <div class="oc-title">❓ Possible Exam Questions</div>
+          <div class="oc-body" id="examQuestions"></div>
+        </div>
+        <div class="out-card oc-violet full">
+          <div class="oc-title">💡 Key Formulas &amp; Definitions</div>
+          <div class="oc-body" id="keyFormulas"></div>
+        </div>
+        <div class="out-card oc-orange full">
+          <div class="oc-title">⚠️ Common Mistakes to Avoid</div>
+          <div class="oc-body" id="mistakes"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================================================================
+       PANEL: 1-MINUTE REVISION
+  ================================================================ -->
+  <div class="panel" id="panel-revision">
+
+    <div class="card card-blue">
+      <div class="card-header">
+        <div class="card-icon icon-blue">⚡</div>
+        <div>
+          <div class="card-title">1-Minute Revision Mode</div>
+          <div class="card-desc">Get an ultra-compressed summary designed to read in under 60 seconds. The timer keeps you honest.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="revisionInput">Topic or content to compress</label>
+        <textarea id="revisionInput" placeholder="Paste any topic, notes, or a chapter here…
+
+Example: Ohm's Law states V = IR where V is voltage, I is current, R is resistance. Kirchhoff's Voltage Law says sum of voltages in a loop equals zero..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-blue" onclick="startRevision()">⚡ Create 60-Second Summary</button>
+      </div>
+    </div>
+
+    <div class="loader" id="revisionLoader">
+      <div class="spinner" style="border-top-color:var(--blue);"></div>
+      Condensing your content into a 60-second read…
+    </div>
+
+    <div class="out-section" id="revisionOutput">
+      <div class="rev-panel">
+        <div class="rev-timer" id="revTimer">1:00</div>
+        <div class="rev-timer-lbl">Countdown Timer</div>
+        <div class="prog-wrap">
+          <div class="prog-fill" id="progFill" style="width:100%"></div>
+        </div>
+        <div id="revBtns">
+          <button class="btn btn-blue" onclick="startTimer()">▶ Start Timer</button>
+        </div>
+        <div class="rev-summary" id="revSummary"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================================================================
+       PANEL: FLASHCARDS
+  ================================================================ -->
+  <div class="panel" id="panel-flashcards">
+
+    <div class="card card-orange">
+      <div class="card-header">
+        <div class="card-icon icon-orange">🃏</div>
+        <div>
+          <div class="card-title">AI Flashcard Generator</div>
+          <div class="card-desc">Paste notes and get interactive flip-cards. Click each card to reveal the answer. Great for active recall!</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fcInput">Content to turn into flashcards</label>
+        <textarea id="fcInput" placeholder="Paste definitions, concepts, formulas, or any topic content…
+
+Example: OSI Model has 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, Application. TCP is connection-oriented. UDP is connectionless..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-orange" onclick="generateFlashcards()">🃏 Generate Flashcards</button>
+      </div>
+    </div>
+
+    <div class="loader" id="fcLoader">
+      <div class="spinner" style="border-top-color:var(--orange);"></div>
+      Creating your personalised flashcards…
+    </div>
+
+    <div class="out-section" id="fcOutput">
+      <div class="out-head">
+        <div class="out-label">🃏 Flip Card Set</div>
+        <div class="fc-counter" id="fcCounter"></div>
+      </div>
+
+      <div class="fc-wrap">
+        <div class="fc-card" id="fcCard" onclick="flipCard()">
+          <div class="fc-front">
+            <div class="fc-badge">Question</div>
+            <div class="fc-text" id="fcQuestion">Click a card to begin</div>
+            <div class="fc-hint">👆 Tap to flip</div>
+          </div>
+          <div class="fc-back">
+            <div class="fc-badge">Answer</div>
+            <div class="fc-text" id="fcAnswer">Answer appears here</div>
+            <div class="fc-hint">👆 Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fc-nav">
+        <button class="btn btn-ghost" onclick="prevCard()">← Prev</button>
+        <span class="fc-counter" id="fcIdx">1 / ?</span>
+        <button class="btn btn-orange" onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================================================================
+       PANEL: QUIZ
+  ================================================================ -->
+  <div class="panel" id="panel-quiz">
+
+    <div class="card card-lime">
+      <div class="card-header">
+        <div class="card-icon icon-lime">🎯</div>
+        <div>
+          <div class="card-title">AI Quiz Generator</div>
+          <div class="card-desc">Test your knowledge! AI creates multiple-choice questions from your content. See your score at the end.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="quizInput">Content to quiz yourself on</label>
+        <textarea id="quizInput" placeholder="Paste the topic, chapter, or notes you want to be quizzed on…
+
+Example: Newton's Laws: 1st law – Inertia, 2nd law – F=ma, 3rd law – Action-Reaction. Momentum = mass × velocity. Kinetic energy = ½mv²..."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-lime" onclick="generateQuiz()">🎯 Start Quiz</button>
+      </div>
+    </div>
+
+    <div class="loader" id="quizLoader">
+      <div class="spinner" style="border-top-color:var(--lime);"></div>
+      Building your custom quiz…
+    </div>
+
+    <div class="out-section" id="quizOutput">
+      <div id="quizQuestions"></div>
+      <div id="quizScoreBoard" style="display:none;"></div>
+      <div class="btn-row" id="quizNavBtns" style="display:none;">
+        <button class="btn btn-lime" onclick="submitQuiz()">✅ Submit &amp; See Score</button>
+        <button class="btn btn-ghost" onclick="generateQuiz()">🔄 New Quiz</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ================================================================
+       PANEL: ELI5 EXPLAINER
+  ================================================================ -->
+  <div class="panel" id="panel-explain">
+
+    <div class="card card-yellow">
+      <div class="card-header">
+        <div class="card-icon icon-yellow">🧠</div>
+        <div>
+          <div class="card-title">ELI5 Topic Explainer</div>
+          <div class="card-desc">"Explain Like I'm 5" — paste any confusing topic and get a simple, fun, easy-to-understand explanation with an analogy.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="eli5Input">Topic or concept to explain simply</label>
+        <textarea id="eli5Input" style="min-height:120px;" placeholder="Enter any difficult concept or paste a confusing paragraph…
+
+Example: Explain Fourier Transform, or 'What is recursion?', or paste a confusing paragraph from your textbook."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="eli5Level">Explanation style</label>
+        <select id="eli5Level">
+          <option value="5-year-old">🧒 Like I'm 5 – Super simple, fun analogy</option>
+          <option value="high school student" selected>🎒 High school – Clear and relatable</option>
+          <option value="engineering student">🎓 Engineering student – Technically accurate but simple</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-yellow" onclick="generateELI5()">🧠 Explain This!</button>
+      </div>
+    </div>
+
+    <div class="loader" id="eli5Loader">
+      <div class="spinner" style="border-top-color:var(--orange);"></div>
+      Crafting the simplest possible explanation…
+    </div>
+
+    <div class="eli5-output" id="eli5Output"></div>
+
+  </div>
+
+  <!-- ================================================================
+       PANEL: STUDY PLAN
+  ================================================================ -->
+  <div class="panel" id="panel-plan">
+
+    <div class="card card-violet">
+      <div class="card-header">
+        <div class="card-icon icon-violet">📅</div>
+        <div>
+          <div class="card-title">Study Plan Generator</div>
+          <div class="card-desc">Enter your subject and exam date. Get a personalised day-by-day plan with the right mix of reading, practice and revision.</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="planSubject">Subject / Topic</label>
+          <input type="text" id="planSubject" placeholder="e.g. Operating Systems, Calculus…">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label for="planDate">Exam Date</label>
+          <input type="date" id="planDate">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:16px;">
+        <label for="planLevel">Current Level</label>
+        <select id="planLevel">
+          <option value="beginner">🟡 Beginner – Starting from scratch</option>
+          <option value="intermediate" selected>🟠 Intermediate – Some understanding</option>
+          <option value="advanced">🟢 Advanced – Need targeted revision</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="planHours">Daily Study Hours Available</label>
+        <select id="planHours">
+          <option value="1-2">1–2 hours (Light)</option>
+          <option value="3-4" selected>3–4 hours (Moderate)</option>
+          <option value="5-6">5–6 hours (Intensive)</option>
+          <option value="6+">6+ hours (Exam Crunch 🔥)</option>
+        </select>
+      </div>
+
+      <button class="btn btn-violet btn-full" onclick="generatePlan()">📅 Build My Study Plan</button>
+    </div>
+
+    <div class="loader" id="planLoader">
+      <div class="spinner" style="border-top-color:var(--violet);"></div>
+      Building your personalised study roadmap…
+    </div>
+
+    <div class="out-section" id="planOutput">
+      <div class="out-head">
+        <div class="out-label">📅 Your Study Roadmap</div>
+      </div>
+      <div class="card">
+        <div id="planDays"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ✅ Google AdSense Banner Ad -->
+  <div style="text-align:center;margin:40px 0 0;min-height:90px;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6892813364721067"
+         data-ad-slot="auto"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-title">NightBefore AI 🌙</div>
+    <p>Built for students who believe in the power of the last night • Powered by Claude AI</p>
+    <p style="margin-top:6px;">Paste content → Let AI work → Ace your exam → Repeat 💪</p>
+  </footer>
+
+</div><!-- /wrap -->
+
+<script>
+/* ================================================================
+   UTILITIES
+================================================================ */
+const $ = id => document.getElementById(id);
+const showToast = msg => {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.animation = 'toastIn 0.3s ease reverse both'; }, 2300);
+  setTimeout(() => t.remove(), 2700);
+};
+
+function switchTab(tab) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  $('panel-' + tab).classList.add('active');
+  document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+}
+
+async function callClaude(prompt) {
+  // Using Pollinations AI — 100% free, no API key needed
+  const res = await fetch("https://text.pollinations.ai/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      messages: [
+        { role: "system", content: "You are an expert exam coach for engineering and college students. Always respond with exactly what is asked — no extra commentary." },
+        { role: "user", content: prompt }
+      ],
+      model: "openai",
+      seed: Math.floor(Math.random() * 9999)
+    })
+  });
+  if (!res.ok) throw new Error("AI service error: " + res.status);
+  const text = await res.text();
+  return text;
+}
+
+function parseJSON(raw) {
+  // Strip markdown fences, leading/trailing whitespace
+  let cleaned = raw.replace(/```json|```/gi, '').trim();
+  // Find first [ or { and last ] or }
+  const firstBracket = Math.min(
+    cleaned.indexOf('[') === -1 ? Infinity : cleaned.indexOf('['),
+    cleaned.indexOf('{') === -1 ? Infinity : cleaned.indexOf('{')
+  );
+  const lastBracket = Math.max(cleaned.lastIndexOf(']'), cleaned.lastIndexOf('}'));
+  if (firstBracket !== Infinity && lastBracket !== -1) {
+    cleaned = cleaned.slice(firstBracket, lastBracket + 1);
+  }
+  return JSON.parse(cleaned);
+}
+
+function fmt(str) {
+  return (str || '').split('\n').map(l => l.trim()).filter(Boolean).join('\n');
+}
+
+function clearField(inputId, outputId) {
+  $(inputId).value = '';
+  const el = $(outputId);
+  if (el) el.classList.remove('show');
+}
+
+/* ================================================================
+   PANEL 1: EXAM NOTES
+================================================================ */
+async function generateNotes() {
+  const input = $('notesInput').value.trim();
+  if (!input) { showToast('⚠️ Please paste some content first!'); return; }
+  $('notesLoader').classList.add('show');
+  $('notesOutput').classList.remove('show');
+  try {
+    const raw = await callClaude(`You are an expert exam coach for engineering and college students.
+Analyse the study content below and return ONLY valid JSON (no markdown, no preamble) with these keys:
+{
+  "shortNotes": "5–7 concise bullet notes, each starting with • on its own line",
+  "importantTopics": "6 high-priority topics, numbered 1–6, one per line",
+  "examQuestions": "5 likely exam questions (mix of short and long answer), numbered 1–5",
+  "keyFormulas": "Key formulas, definitions, or terms to memorise, each on its own line with ➜ prefix",
+  "mistakes": "3–4 common student mistakes to avoid, each starting with ✗ on its own line"
+}
+
+CONTENT:
+"""${input.slice(0, 3000)}"""`);
+    const d = parseJSON(raw);
+    $('shortNotes').textContent        = fmt(d.shortNotes);
+    $('importantTopics').textContent   = fmt(d.importantTopics);
+    $('examQuestions').textContent     = fmt(d.examQuestions);
+    $('keyFormulas').textContent       = fmt(d.keyFormulas);
+    $('mistakes').textContent          = fmt(d.mistakes);
+    $('notesLoader').classList.remove('show');
+    $('notesOutput').classList.add('show');
+    $('notesOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast('✅ Exam notes ready!');
+  } catch(e) {
+    $('notesLoader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+function copyAll() {
+  const ids = ['shortNotes','importantTopics','examQuestions','keyFormulas','mistakes'];
+  const text = ids.map(id => $(id)?.textContent?.trim() || '').filter(Boolean).join('\n\n---\n\n');
+  if (!text) { showToast('⚠️ Nothing to copy yet!'); return; }
+  navigator.clipboard.writeText(text).then(() => showToast('📋 Copied!'));
+}
+
+/* ================================================================
+   PANEL 2: 1-MINUTE REVISION
+================================================================ */
+let timerInt = null, secsLeft = 60;
+
+async function startRevision() {
+  const input = $('revisionInput').value.trim();
+  if (!input) { showToast('⚠️ Please paste some content first!'); return; }
+  clearInterval(timerInt);
+  secsLeft = 60;
+  $('revTimer').textContent = '1:00';
+  $('progFill').style.width = '100%';
+  $('revBtns').innerHTML = '<button class="btn btn-blue" onclick="startTimer()">▶ Start Timer</button>';
+  $('revisionLoader').classList.add('show');
+  $('revisionOutput').classList.remove('show');
+  try {
+    const raw = await callClaude(`Create an ultra-concise 1-minute revision summary of the content below.
+Write 8–10 bullet points. Each starts with "•". Each is one single memorable fact.
+No intro, no outro — ONLY bullets. Plain text.
+
+CONTENT:
+"""${input.slice(0, 2000)}"""`);
+    $('revSummary').textContent = raw.trim();
+    $('revisionLoader').classList.remove('show');
+    $('revisionOutput').classList.add('show');
+    $('revisionOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch(e) {
+    $('revisionLoader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+function startTimer() {
+  clearInterval(timerInt);
+  secsLeft = 60;
+  $('revBtns').innerHTML = '<button class="btn btn-ghost" onclick="resetTimer()">↺ Reset</button>';
+  timerInt = setInterval(() => {
+    secsLeft--;
+    const m = Math.floor(secsLeft / 60);
+    const s = String(secsLeft % 60).padStart(2, '0');
+    $('revTimer').textContent = `${m}:${s}`;
+    $('progFill').style.width = (secsLeft / 60 * 100) + '%';
+    if (secsLeft <= 0) {
+      clearInterval(timerInt);
+      $('revTimer').textContent = '0:00';
+      $('progFill').style.width = '0%';
+      showToast('⏰ Time\'s up! How much did you remember?');
+      $('revBtns').innerHTML = '<button class="btn btn-blue" onclick="startTimer()">▶ Try Again</button>';
+    }
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timerInt);
+  secsLeft = 60;
+  $('revTimer').textContent = '1:00';
+  $('progFill').style.width = '100%';
+  $('revBtns').innerHTML = '<button class="btn btn-blue" onclick="startTimer()">▶ Start Timer</button>';
+}
+
+/* ================================================================
+   PANEL 3: FLASHCARDS
+================================================================ */
+let fcCards = [], fcIdx = 0;
+
+async function generateFlashcards() {
+  const input = $('fcInput').value.trim();
+  if (!input) { showToast('⚠️ Please paste some content first!'); return; }
+  $('fcLoader').classList.add('show');
+  $('fcOutput').classList.remove('show');
+  try {
+    const raw = await callClaude(`Create 8 flashcards from the content below.
+Return ONLY a JSON array (no markdown, no preamble):
+[{"q": "Question text", "a": "Answer text"}, ...]
+
+Each question should be clear and concise. Each answer should be 1–3 sentences.
+CONTENT:
+"""${input.slice(0, 2500)}"""`);
+    fcCards = parseJSON(raw);
+    if (!Array.isArray(fcCards) || fcCards.length === 0) throw new Error('No cards generated');
+    fcIdx = 0;
+    renderFC();
+    $('fcLoader').classList.remove('show');
+    $('fcOutput').classList.add('show');
+    $('fcOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast(`🃏 ${fcCards.length} flashcards ready!`);
+  } catch(e) {
+    $('fcLoader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+function renderFC() {
+  const card = $('fcCard');
+  card.classList.remove('flipped');
+  $('fcQuestion').textContent = fcCards[fcIdx].q;
+  $('fcAnswer').textContent   = fcCards[fcIdx].a;
+  $('fcIdx').textContent = `${fcIdx + 1} / ${fcCards.length}`;
+}
+
+function flipCard()  { $('fcCard').classList.toggle('flipped'); }
+function nextCard()  { fcIdx = (fcIdx + 1) % fcCards.length;   renderFC(); }
+function prevCard()  { fcIdx = (fcIdx - 1 + fcCards.length) % fcCards.length; renderFC(); }
+
+/* ================================================================
+   PANEL 4: QUIZ
+================================================================ */
+let quizData = [], quizAnswers = {};
+
+async function generateQuiz() {
+  const input = $('quizInput').value.trim();
+  if (!input) { showToast('⚠️ Please paste some content first!'); return; }
+  quizData = []; quizAnswers = {};
+  $('quizLoader').classList.add('show');
+  $('quizOutput').classList.remove('show');
+  $('quizNavBtns').style.display = 'none';
+  $('quizScoreBoard').style.display = 'none';
+  try {
+    const raw = await callClaude(`Create 5 multiple-choice quiz questions from the content below.
+Return ONLY a JSON array (no markdown, no preamble):
+[{
+  "q": "Question text",
+  "options": ["A. option", "B. option", "C. option", "D. option"],
+  "answer": "A",
+  "explanation": "Brief explanation why this is correct"
+}]
+CONTENT:
+"""${input.slice(0, 2500)}"""`);
+    quizData = parseJSON(raw);
+    if (!Array.isArray(quizData) || quizData.length === 0) throw new Error('No questions generated');
+    renderQuiz();
+    $('quizLoader').classList.remove('show');
+    $('quizOutput').classList.add('show');
+    $('quizNavBtns').style.display = 'flex';
+    $('quizOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast(`🎯 ${quizData.length} questions ready!`);
+  } catch(e) {
+    $('quizLoader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+function renderQuiz() {
+  const container = $('quizQuestions');
+  container.innerHTML = '';
+  quizData.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.style.marginBottom = '24px';
+    div.innerHTML = `
+      <div class="quiz-q">
+        <div class="quiz-q-num">Question ${qi + 1} of ${quizData.length}</div>
+        ${q.q}
+      </div>
+      <div class="quiz-options" id="opts-${qi}">
+        ${q.options.map((opt, oi) => `
+          <button class="quiz-opt" onclick="selectAnswer(${qi},'${['A','B','C','D'][oi]}')" id="opt-${qi}-${['A','B','C','D'][oi]}">
+            <span class="quiz-opt-letter">${['A','B','C','D'][oi]}</span>
+            ${opt.replace(/^[A-D]\.\s*/,'')}
+          </button>`).join('')}
+      </div>
+      <div id="feedback-${qi}"></div>`;
+    container.appendChild(div);
+  });
+}
+
+function selectAnswer(qi, chosen) {
+  if (quizAnswers[qi] !== undefined) return; // already answered
+  quizAnswers[qi] = chosen;
+  const q = quizData[qi];
+  const correct = q.answer.trim().toUpperCase();
+  // Disable all options
+  ['A','B','C','D'].forEach(l => {
+    const el = $(`opt-${qi}-${l}`);
+    if (!el) return;
+    el.classList.add('disabled');
+    if (l === correct) el.classList.add('correct');
+    else if (l === chosen && l !== correct) el.classList.add('wrong');
+  });
+  const fb = $(`feedback-${qi}`);
+  const isCorrect = chosen === correct;
+  fb.innerHTML = `<div class="quiz-result-bar ${isCorrect ? 'correct-bg' : 'wrong-bg'}">
+    <span>${isCorrect ? '✅ Correct!' : `❌ Wrong — the answer is ${correct}`}</span>
+    <span style="font-size:0.78rem;color:var(--ink-2);">${q.explanation || ''}</span>
+  </div>`;
+  showToast(isCorrect ? '✅ Correct!' : '❌ Wrong — check the explanation');
+}
+
+function submitQuiz() {
+  const total = quizData.length;
+  const correct = Object.entries(quizAnswers).filter(([qi, ans]) =>
+    ans.trim().toUpperCase() === quizData[qi].answer.trim().toUpperCase()
+  ).length;
+  const pct = Math.round(correct / total * 100);
+  let emoji = pct >= 80 ? '🎉' : pct >= 50 ? '👍' : '📚';
+  let msg = pct >= 80 ? 'Excellent! You\'re ready.' : pct >= 50 ? 'Good effort! Keep revising.' : 'More practice needed.';
+
+  $('quizScoreBoard').style.display = 'block';
+  $('quizScoreBoard').innerHTML = `
+    <div class="quiz-score">
+      <div class="quiz-score-num">${emoji} ${correct}/${total}</div>
+      <div class="quiz-score-label">${pct}% — ${msg}</div>
+    </div>`;
+  $('quizNavBtns').innerHTML = '<button class="btn btn-lime" onclick="generateQuiz()">🔄 Try New Quiz</button>';
+  $('quizScoreBoard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ================================================================
+   PANEL 5: ELI5 EXPLAINER
+================================================================ */
+async function generateELI5() {
+  const input = $('eli5Input').value.trim();
+  if (!input) { showToast('⚠️ Please enter a topic first!'); return; }
+  const level = $('eli5Level').value;
+  $('eli5Loader').classList.add('show');
+  $('eli5Output').classList.remove('show');
+  try {
+    const raw = await callClaude(`Explain the following topic to a ${level}. 
+Use simple language, a fun real-life analogy, and short paragraphs.
+Start with a one-sentence summary, then the analogy, then a quick breakdown.
+Write in a warm, encouraging tone. Avoid jargon. Maximum 200 words.
+
+TOPIC/CONTENT:
+"""${input.slice(0, 1500)}"""`);
+    $('eli5Output').textContent = raw.trim();
+    $('eli5Loader').classList.remove('show');
+    $('eli5Output').classList.add('show');
+    $('eli5Output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch(e) {
+    $('eli5Loader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+/* ================================================================
+   PANEL 6: STUDY PLAN
+================================================================ */
+async function generatePlan() {
+  const subject = $('planSubject').value.trim();
+  const examDate = $('planDate').value;
+  const level = $('planLevel').value;
+  const hours = $('planHours').value;
+  if (!subject) { showToast('⚠️ Please enter a subject!'); return; }
+  if (!examDate) { showToast('⚠️ Please select an exam date!'); return; }
+
+  const today = new Date();
+  const exam  = new Date(examDate);
+  const daysLeft = Math.max(1, Math.ceil((exam - today) / 86400000));
+
+  $('planLoader').classList.add('show');
+  $('planOutput').classList.remove('show');
+  try {
+    const raw = await callClaude(`Create a ${Math.min(daysLeft, 7)}-day study plan for a ${level} student studying "${subject}".
+Exam date: ${examDate}. Daily available: ${hours} hours. Today: ${today.toDateString()}.
+Return ONLY a JSON array (no markdown, no backticks):
+[{"day":1,"date":"Mon 5 Jan","title":"Day theme","tasks":"Specific tasks for the day","hours":"X hours","tag":"read"}]
+Tags: read, practice, revise, test
+Make tasks specific to "${subject}". Be realistic about time. Max 7 days.`);
+    const plan = parseJSON(raw);
+    renderPlan(plan);
+    $('planLoader').classList.remove('show');
+    $('planOutput').classList.add('show');
+    $('planOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast('📅 Study plan ready!');
+  } catch(e) {
+    $('planLoader').classList.remove('show');
+    showToast('❌ ' + (e.message || 'Something went wrong'));
+  }
+}
+
+function renderPlan(plan) {
+  const c = $('planDays');
+  c.innerHTML = '';
+  const tagMap = { read:'📖 Reading', practice:'✏️ Practice', revise:'🔄 Revision', test:'📝 Mock Test' };
+  plan.forEach((item, i) => {
+    const d = document.createElement('div');
+    d.className = 'plan-item';
+    d.style.animationDelay = (i * 0.06) + 's';
+    d.innerHTML = `
+      <div class="plan-num pn-${item.tag}">D${item.day}</div>
+      <div class="plan-content">
+        <div class="plan-day-title">${item.date ? item.date + ' — ' : ''}${item.title}</div>
+        <div class="plan-day-tasks">${item.tasks}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+          <span class="plan-tag tag-${item.tag}">${tagMap[item.tag] || item.tag}</span>
+          ${item.hours ? `<span class="plan-tag" style="color:var(--ink-3);">⏰ ${item.hours}</span>` : ''}
+        </div>
+      </div>`;
+    c.appendChild(d);
+  });
+}
+
+/* ================================================================
+   INIT
+================================================================ */
+(function init() {
+  // Set default exam date to 3 days from now
+  const d = new Date();
+  d.setDate(d.getDate() + 3);
+  $('planDate').value = d.toISOString().split('T')[0];
+})();
+</script>
+</body>
+</html>
