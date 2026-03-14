@@ -4,6 +4,8 @@ NightBefore AI is a vibrant, all‑in‑one study companion designed for student
 
 https://nightbefore-ai-pro1.netlify.app/
 
+
+
 # ✨ Features
 Panel	Description
 📝 Exam Notes	Extracts key points, important topics, likely exam questions, formulas, and common mistakes from your study material.
