@@ -78,7 +78,7 @@ Accessibility – semantic HTML, focus states, and high contrast where needed.
 This project is open source and available under the MIT License. Feel free to use, modify, and distribute it as you wish.
 
 🙌 Credits
-Idea & development – [Sumit Kumar]
+Idea & development – [Your Name / Organisation]
 
 AI backend – Pollinations AI for providing a free, no‑key text generation API.
 
