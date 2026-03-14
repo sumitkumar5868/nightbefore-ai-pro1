@@ -1,10 +1,10 @@
-##NightBefore AI – Last Minute Exam Helper 🌙
+# NightBefore AI – Last Minute Exam Helper 🌙
 
 NightBefore AI is a vibrant, all‑in‑one study companion designed for students who need to cram effectively. With six AI‑powered tools, you can paste your notes, syllabus, or textbook content and instantly receive concise exam notes, flashcards, quizzes, simplified explanations, and a personalised study plan – all within a playful, high‑energy interface.
 
 https://nightbefore-ai-pro1.netlify.app/
 
-##✨ Features
+# ✨ Features
 Panel	Description
 📝 Exam Notes	Extracts key points, important topics, likely exam questions, formulas, and common mistakes from your study material.
 ⏱ 1‑Min Revision	Condenses any topic into a bullet‑point summary meant to be read in under 60 seconds. Includes a countdown timer to keep you focused.
@@ -26,7 +26,8 @@ Study, flip, quiz, repeat – interact with the outputs, track your timer, and w
 
 All AI processing is done through Pollinations AI – no API key required, completely free, and privacy‑friendly (your content is not stored).
 
-##🛠 Built With
+# 🛠 Built With
+
 HTML5 – semantic structure
 
 CSS3 – custom properties, animations, grid, and a bold “neon risograph” design system
@@ -39,7 +40,7 @@ Google Fonts – Cabinet Grotesk & Fraunces for a distinctive typographic voice
 
 Google AdSense – optional ad placement (you can remove or replace the ad code)
 
-##📦 Getting Started
+# 📦 Getting Started
 No build tools, no dependencies – just open the file in your browser.
 
 Clone the repository
@@ -50,10 +51,9 @@ cd nightbefore-ai
 Open index.html in any modern browser (Chrome, Firefox, Edge, Safari).
 
 Start studying! Paste your content and explore the features.
+# ⚠️ Note: The app makes requests to https://text.pollinations.ai/. If you are behind a restrictive firewall, you may need to allow that domain.
 
-⚠️ Note: The app makes requests to https://text.pollinations.ai/. If you are behind a restrictive firewall, you may need to allow that domain.
-
-##📁 File Structure
+# 📁 File Structure
 text
 nightbefore-ai/
 ├── index.html          # The entire application (HTML, CSS, JS)
@@ -66,7 +66,7 @@ The app only sends the text you paste; no personal data is collected or stored.
 
 Pollinations AI does not require an API key and does not log your requests.
 
-##🎨 Design Highlights
+# 🎨 Design Highlights
 Neon Risograph aesthetic – hot pink, electric blue, lime, orange, and violet on a warm white canvas.
 
 Playful shapes & animations – floating deco shapes, a motivational ticker, and smooth hover effects.
@@ -75,7 +75,7 @@ Fully responsive – works on phones, tablets, and desktops.
 
 Accessibility – semantic HTML, focus states, and high contrast where needed.
 
-📄 License
+# 📄 License
 This project is open source and available under the MIT License. Feel free to use, modify, and distribute it as you wish.
 
 🙌 Credits
